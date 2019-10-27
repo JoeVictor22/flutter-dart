@@ -19,9 +19,10 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    cep = fetchCep();
+    cep = fetchCep(60730235);
   }
 
+  int _cep = 60730235;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,34 +47,52 @@ class _MyAppState extends State<MyApp> {
               // By default, show a loading spinner.
               return CircularProgressIndicator();
             },
+
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() => _cep++);
+            fetchCep(_cep) ;
+            },
+          tooltip: 'Increment CEP',
+          child: const Icon(Icons.add),
+        ),
+
       ),
     );
   }
 }
 
 class Cep {
-  final String logradouro;
-  final String cep;
-  final String complemento;
-  final String display;
+  String logradouro;
+  String cep;
+  String complemento;
+  String display;
 
   Cep({this.logradouro, this.cep, this.complemento, this.display});
 
   factory Cep.fromJson(Map<String, dynamic> json) {
-    var display = json['cep'] + "-" + json['logradouro'];
+    String cep = (json['cep'] != Null? json['cep'] : "nao");
+    String logradouro = (json['logradouro'] != Null? json['logradouro'] : "nao");
+    String complemento = (json['complemento'] != Null ? json['complemento'] : "nao");
+    String display = cep + "-" + logradouro;
+
     return Cep(
-      logradouro: json['logradouro'],
-      cep: json['cep'],
-      complemento: json['complemento'],
+      logradouro: logradouro,
+      cep: cep,
+      complemento: complemento,
       display : display,
     );
   }
 }
 
-Future<Cep> fetchCep() async {
-  final response = await http.get('https://viacep.com.br/ws/01001000/json/');
+Future<Cep> fetchCep(_cep) async {
+  String cep = _cep.toString();
+  String url = "https://viacep.com.br/ws/" + cep+ "/json/";
+  var response = await http.get(url);
+
+  print(cep+ "-" +  url);
 
   if (response.statusCode == 200) {
     return Cep.fromJson(json.decode(response.body));
