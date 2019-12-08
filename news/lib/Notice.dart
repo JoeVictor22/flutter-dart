@@ -16,7 +16,7 @@ class Notice extends StatelessWidget{
     this._context = context;
 
     return new Container(
-      margin: const EdgeInsets.only(left: 1.0, right: 1.0,bottom: 1.0,top: 0.0),
+      margin: const EdgeInsets.only(left: 5.0, right: 1.0,bottom: 1.0,top: 1.0),
       child: new Material(
         textStyle: TextStyle(color: Colors.white),
         borderRadius: new BorderRadius.circular(5.0),
@@ -36,8 +36,9 @@ class Notice extends StatelessWidget{
       child: new Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new FadeInImage.assetNetwork(placeholder: '', image: _img,fit: BoxFit.cover,width: 70.0,height: 70.0,),
+          new FadeInImage.assetNetwork(placeholder: '', image: _img,fit: BoxFit.cover,width: 90.0,height: 90.0,),
           _getColumText(_title),
+
         ],
 
       ),

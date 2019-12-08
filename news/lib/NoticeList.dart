@@ -16,8 +16,10 @@ class _NoticeListPageState extends State<NoticeList>{
   List _news = new List();
   var repository = new NewsApi();
   var _currentIndex = 0;
-  var defaultColor = Color.fromRGBO(10, 10, 10, 30);
 
+  var defaultColor = Color.fromRGBO(10, 10, 10, 30);
+  List _categorys = new List();
+  var _category_selected = 0;
   @override
   Widget build(BuildContext context) {
 
@@ -38,10 +40,17 @@ class _NoticeListPageState extends State<NoticeList>{
         ],
       ),
       body: new Container(
-        child: _getListViewWidget(),
         color: defaultColor,
+        child: new Column(
+          children: <Widget>[
+            _getListCategory(),
+            new Expanded(
+              child: _getListViewWidget(),
+            )
+          ],
+        ),
       ),
-        bottomNavigationBar: _getBottomNavigator()
+      bottomNavigationBar: _getBottomNavigator(),
     );
 
   }
@@ -49,6 +58,7 @@ class _NoticeListPageState extends State<NoticeList>{
   @override
   void initState() {
 
+    setCategorys();
     loadNotices();
 
   }
@@ -108,6 +118,66 @@ class _NoticeListPageState extends State<NoticeList>{
     setState(() {
       _currentIndex = index;
     });
+  }
+
+  void setCategorys() {
+
+    _categorys.add("Geral");
+    _categorys.add("Categoria 1");
+    _categorys.add("Categoria 2");
+    _categorys.add("Categoria 3");
+    _categorys.add("Categoria 4");
+    _categorys.add("Categoria 5");
+
+  }
+
+  Widget _getListCategory(){
+
+    ListView listCategory = new ListView.builder(
+        itemCount: _categorys.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index){
+          return _buildCategoryItem(index);
+        }
+    );
+
+    return new Container(
+      height: 55.0,
+      child: listCategory,
+    );
+
+  }
+
+  onTabCategory(index) {
+    setState(() {
+      _category_selected = index;
+    });
+  }
+
+  Widget _buildCategoryItem(index){
+
+    return new GestureDetector(
+      onTap: (){
+        onTabCategory(index);
+      },
+      child: new Center(
+        child: new Container(
+          margin: new EdgeInsets.only(left: 5.0, right: 5),
+          child: new Material(
+            elevation: 2.0,
+            borderRadius: const BorderRadius.all(const Radius.circular(25.0)),
+            child:  new Container(
+              padding: new EdgeInsets.only(left: 12.0,top: 7.0,bottom: 7.0,right: 12.0),
+              color: _category_selected == index ? Colors.black:Colors.black,
+              child: new Text(_categorys[index],
+                style: new TextStyle(
+                    color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
 }
