@@ -28,6 +28,7 @@ class Notice extends StatelessWidget{
 
   Widget _getListTile(){
 
+
     return new Container(
       height: 90.0,
       color: Color.fromRGBO(40, 40, 40, 1),
@@ -61,7 +62,7 @@ class Notice extends StatelessWidget{
   Widget _getTitleWidget(String curencyName){
     return new Text(
       curencyName,
-      maxLines: 4,
+      maxLines: 3,
       style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 15),
     );
   }

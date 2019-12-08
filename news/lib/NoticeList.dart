@@ -15,15 +15,18 @@ class _NoticeListPageState extends State<NoticeList>{
 
   List _news = new List();
   var repository = new NewsApi();
+  var _currentIndex = 0;
+  var defaultColor = Color.fromRGBO(10, 10, 10, 30);
 
   @override
   Widget build(BuildContext context) {
 
-    var color = Color.fromRGBO(10, 10, 10, 30);
+
+
     return new Scaffold(
       appBar: new AppBar(
         title: const Text("News"),
-        backgroundColor: color,
+        backgroundColor: defaultColor,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
@@ -36,8 +39,9 @@ class _NoticeListPageState extends State<NoticeList>{
       ),
       body: new Container(
         child: _getListViewWidget(),
-        color: color,
+        color: defaultColor,
       ),
+        bottomNavigationBar: _getBottomNavigator()
     );
 
   }
@@ -78,6 +82,32 @@ class _NoticeListPageState extends State<NoticeList>{
 
     });
 
+  }
+  Widget _getBottomNavigator() {
+
+    return new BottomNavigationBar(
+      onTap: onTabTapped, // new
+      currentIndex: _currentIndex, // new
+      type: BottomNavigationBarType.shifting,
+      items: [
+        new BottomNavigationBarItem(
+            icon: const Icon(Icons.list),
+            title: Text('Recentes'),
+            backgroundColor: defaultColor
+        ),
+        new BottomNavigationBarItem(
+            icon: const Icon(Icons.star),
+            title: Text('Salvos'),
+            backgroundColor: defaultColor
+        )
+      ],
+    );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 
 }
