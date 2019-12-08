@@ -16,8 +16,9 @@ class Notice extends StatelessWidget{
     this._context = context;
 
     return new Container(
-      margin: const EdgeInsets.only(left: 6.0, right: 4.0,bottom: 1.0,top: 0.0),
+      margin: const EdgeInsets.only(left: 1.0, right: 1.0,bottom: 1.0,top: 0.0),
       child: new Material(
+        textStyle: TextStyle(color: Colors.white),
         borderRadius: new BorderRadius.circular(5.0),
         elevation: 8.0,
         child: _getListTile(),
@@ -29,6 +30,8 @@ class Notice extends StatelessWidget{
 
     return new Container(
       height: 90.0,
+      color: Color.fromRGBO(40, 40, 40, 1),
+
       child: new Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -59,7 +62,7 @@ class Notice extends StatelessWidget{
     return new Text(
       curencyName,
       maxLines: 4,
-      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 15),
     );
   }
 

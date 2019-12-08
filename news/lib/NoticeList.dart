@@ -19,10 +19,11 @@ class _NoticeListPageState extends State<NoticeList>{
   @override
   Widget build(BuildContext context) {
 
+    var color = Color.fromRGBO(10, 10, 10, 30);
     return new Scaffold(
       appBar: new AppBar(
         title: const Text("News"),
-        backgroundColor: Colors.black,
+        backgroundColor: color,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
@@ -35,6 +36,7 @@ class _NoticeListPageState extends State<NoticeList>{
       ),
       body: new Container(
         child: _getListViewWidget(),
+        color: color,
       ),
     );
 
@@ -51,7 +53,7 @@ class _NoticeListPageState extends State<NoticeList>{
 
     var list = new ListView.builder(
         itemCount: _news.length,
-        padding: new EdgeInsets.only(top: 5.0, bottom: 15),
+        padding: new EdgeInsets.only(top:0.0, bottom: 15),
         itemBuilder: (context, index){
           return _news[index];
         }
