@@ -84,7 +84,8 @@ class _NoticeListPageState extends State<NoticeList>{
       result.forEach((item) {
         var notice = new Notice(
             item['url_img'],
-            item['tittle']
+            item['tittle'],
+            item['date']
         );
         _news.add(notice);
 

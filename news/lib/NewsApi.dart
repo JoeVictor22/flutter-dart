@@ -8,7 +8,7 @@ class NewsApi{
     String json = "[  \n" +
         "   {  \n" +
         "      \"id\":\"1\",\n" +
-        "      \"tittle\":\"Notícia 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n" +
+        "      \"tittle\":\"Notícia 1 \",\n" +
         "      \"url_img\":\"https://picsum.photos/250?image=1\",\n" +
         "      \"link\":\"Descricao qualquer\",\n" +
         "      \"origin\":\"siteorigem.com\",\n" +
@@ -17,7 +17,7 @@ class NewsApi{
         "   },\n" +
         "   {  \n" +
         "      \"id\":\"2\",\n" +
-        "      \"tittle\":\"Notícia 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n" +
+        "      \"tittle\":\"Notícia 2 \",\n" +
         "      \"url_img\":\"https://picsum.photos/250?image=2\",\n" +
         "      \"link\":\"Descricao qualquer\",\n" +
         "      \"origin\":\"siteorigem.com\",\n" +
@@ -26,7 +26,7 @@ class NewsApi{
         "   },\n" +
         "   {  \n" +
         "      \"id\":\"3\",\n" +
-        "      \"tittle\":\"Notícia 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n" +
+        "      \"tittle\":\"Notícia 3 \",\n" +
         "      \"url_img\":\"https://picsum.photos/250?image=3\",\n" +
         "      \"link\":\"Descricao qualquer\",\n" +
         "      \"origin\":\"siteorigem.com\",\n" +
@@ -35,7 +35,7 @@ class NewsApi{
         "   },\n" +
         "   {  \n" +
         "      \"id\":\"4\",\n" +
-        "      \"tittle\":\"Notícia 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n" +
+        "      \"tittle\":\"Notícia 4 \",\n" +
         "      \"url_img\":\"https://picsum.photos/250?image=4\",\n" +
         "      \"link\":\"Descricao qualquer\",\n" +
         "      \"origin\":\"siteorigem.com\",\n" +
@@ -44,7 +44,7 @@ class NewsApi{
         "   },\n" +
         "   {  \n" +
         "      \"id\":\"5\",\n" +
-        "      \"tittle\":\"Notícia 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n" +
+        "      \"tittle\":\"Notícia 5 \",\n" +
         "      \"url_img\":\"https://picsum.photos/250?image=5\",\n" +
         "      \"link\":\"Descricao qualquer\",\n" +
         "      \"origin\":\"siteorigem.com\",\n" +

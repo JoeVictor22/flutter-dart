@@ -1,13 +1,18 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:news/NoticeView.dart';
+import 'NoticeList.dart';
 
 class Notice extends StatelessWidget{
 
   var _img;
   var _title;
+  var _date;
 
-  Notice(this._img,this._title);
+
+
+  Notice(this._img,this._title, this._date);
 
   BuildContext _context;
 
@@ -21,7 +26,12 @@ class Notice extends StatelessWidget{
         textStyle: TextStyle(color: Colors.white),
         borderRadius: new BorderRadius.circular(5.0),
         elevation: 8.0,
-        child: _getListTile(),
+          child: new InkWell(
+            onTap: showDetail,
+            splashColor: Colors.black,
+            child: _getListTile(),
+          )
+
       ),
     );
   }
@@ -68,6 +78,13 @@ class Notice extends StatelessWidget{
     );
   }
 
+  showDetail() {
+    Navigator
+        .of(_context)
+        .push(new MaterialPageRoute(builder: (BuildContext context) {
+      return new NoticeView(_img, _title, _date);
+    }));
+  }
 
 
 }
